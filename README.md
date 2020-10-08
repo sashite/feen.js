@@ -24,39 +24,33 @@ npm install @sashite/feen
 
 ```javascript
 // Dump a classic Tsume Shogi problem
-FEEN.dump(
-  active_side_id: 0,
-  board: {
+FEEN.dump({
+  inHand: ['S', 'r', 'r', 'b', 'g', 'g', 'g', 'g', 's', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+  shape: [9, 9],
+  sideId: 0,
+  square: {
      3: 's',
      4: 'k',
      5: 's',
     22: '+P',
     43: '+B'
-  },
-  indexes: [9, 9],
-  pieces_in_hand_grouped_by_sides: [
-    ['S'],
-    ['r', 'r', 'b', 'g', 'g', 'g', 'g', 's', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p']
-  ]
-);
-// => "3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S/b,g,g,g,g,n,n,n,n,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,r,r,s"
+  }
+});
+// => '3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S,b,g,g,g,g,n,n,n,n,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,r,r,s'
 
 // Parse a classic Tsume Shogi problem
-FEEN.parse("3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S/b,g,g,g,g,n,n,n,n,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,r,r,s");
+FEEN.parse("3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S,b,g,g,g,g,n,n,n,n,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,r,r,s");
 // => {
-//      active_side_id: 0,
-//      board: {
+//      inHand: ['S', 'r', 'r', 'b', 'g', 'g', 'g', 'g', 's', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+//      shape: [9, 9],
+//      sideId: 0,
+//      square: {
 //         3: 's',
 //         4: 'k',
 //         5: 's',
 //        22: '+P',
 //        43: '+B'
-//      },
-//      indexes: [9, 9],
-//      pieces_in_hand_grouped_by_sides: [
-//        ['S'],
-//        ['b', 'g', 'g', 'g', 'g', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'r', 'r', 's']
-//      ]
+//      }
 //    }
 ```
 
