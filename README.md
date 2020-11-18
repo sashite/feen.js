@@ -54,6 +54,11 @@ FEEN.parse("3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S,b,g,g,g,g,n,n,n,n,p,p,p,p,p,
 //    }
 ```
 
+## TODO
+
+- [ ] Mort than two dimensions board support
+- [ ] More than two players support
+
 ## License
 
 The code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
