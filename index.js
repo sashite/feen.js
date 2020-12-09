@@ -1,19 +1,3 @@
-class ParserShape {
-  constructor(squareStr) {
-    this.squareStr = squareStr;
-  }
-
-  toArray() {
-    // var actions = [];
-    //
-    // for(var i = 0; i < moveArr.length; i += 4) {
-    //   actions.push(moveArr.slice(i, i + 4));
-    // }
-    //
-    // return actions;
-  }
-}
-
 const FEEN = {
   dump: function(positionObject) {
     var squareStr = [];
