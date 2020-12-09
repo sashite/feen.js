@@ -31,25 +31,22 @@ const FEEN = {
     const sideIdStr = fields[1];
     const inHandStr = fields[2];
 
+    const numberRegex = /\d+/;
+    const lengthFirstDim = squareStr.split('/')[0].split(',').map(x => (numberRegex.test(x) ? parseInt(x, 10) : 1)).reduce((a, b) => a + b);
+    const squares = squareStr.split('/').map(row => row.split(',').map(cell => (numberRegex.test(cell) ? new Array(parseInt(cell, 10)).fill(null) : cell))).flat(2);
+    const boardObj = {...squares};
+
+    // NOTE remove the keys having a `null` value from the board object.
+    Object.keys(boardObj).forEach((key) => (boardObj[key] == null) && delete boardObj[key]);
+
     const positionObject = {
-      inHand: (inHandStr === '-' ? [] : inHandStr.split(',')),
-      shape: "Shape.new(square_str).to_a",
+      inHand: (inHandStr === '-' ? [] : inHandStr.split(',')).sort(),
+      shape: [lengthFirstDim, lengthFirstDim],
       sideId: parseInt(sideIdStr, 10),
-      square: "Square.new(square_str).to_h"
+      square: boardObj
     };
 
-    return {
-      inHand: ['S', 'r', 'r', 'b', 'g', 'g', 'g', 'g', 's', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
-      shape: [9, 9],
-      sideId: 0,
-      square: {
-         3: 's',
-         4: 'k',
-         5: 's',
-        22: '+P',
-        43: '+B'
-      }
-    };
+    return positionObject;
   }
 };
 
