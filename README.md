@@ -41,7 +41,7 @@ FEEN.dump({
 // Parse a classic Tsume Shogi problem
 FEEN.parse("3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S,b,g,g,g,g,n,n,n,n,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,r,r,s");
 // => {
-//      inHand: ['S', 'r', 'r', 'b', 'g', 'g', 'g', 'g', 's', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'],
+//      inHand: ['S', 'b', 'g', 'g', 'g', 'g', 'n', 'n', 'n', 'n', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'r', 'r', 's'],
 //      shape: [9, 9],
 //      sideId: 0,
 //      square: {
