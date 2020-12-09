@@ -16,13 +16,42 @@ class ParserShape {
 
 const FEEN = {
   dump: function(positionObject) {
-    [
-      "Square.new(positionObject['shape'], positionObject['square']).to_s",
-      positionObject['sideId'],
-      (positionObject['inHand'].length === 0 ? '-' : positionObject['inHand'].sort().join('/'))
-    ].join(' ')
+    var squareStr = [];
 
-    return '3,s,k,s,3/9/4,+P,4/9/7,+B,1/9/9/9/9 0 S,b,g,g,g,g,n,n,n,n,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,p,r,r,s';
+    for (let i = 0; i < positionObject['shape'][0]; i++) {
+      let empty = 0;
+
+      for (let j = 0; j < positionObject['shape'][1]; j++) {
+        var squareId = j + (i * positionObject['shape'][0]);
+        var piece = positionObject['square'][squareId];
+
+        if (piece) {
+          if (empty > 0) {
+            squareStr.push(empty);
+            empty = 0;
+          }
+
+          squareStr.push(piece);
+        } else {
+          empty++;
+        }
+      }
+
+      if (empty > 0) {
+        squareStr.push(empty);
+      }
+
+      squareStr.push('/');
+    }
+    squareStr.pop();
+    squareStr = squareStr.join(',');
+    squareStr = squareStr.replace(/,?\/,?/g, '/');
+
+    return [
+      squareStr,
+      positionObject['sideId'],
+      (positionObject['inHand'].length === 0 ? '-' : positionObject['inHand'].sort().join(','))
+    ].join(' ');
   },
   parse: function(feenString) {
     const fields = feenString.split(' ', 3);
