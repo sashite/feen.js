@@ -28,9 +28,9 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "ava"
+    "test": "uvu"
   },
   "devDependencies": {
-    "ava": "^3.10.1"
+    "uvu": "^0.5.1"
   }
 }
